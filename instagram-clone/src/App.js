@@ -5,7 +5,7 @@ import Posts from './Posts';
 
 function App() {
   /** Creating useState to pass values to props dynamically  */
-  const [post, setPosts] = useState([
+  const [posts, setPosts] = useState([
     {
       username: "cleverquazi",
       imageUrl: "https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/Ekran-Resmi-2019-11-18-18.08.13.png",
@@ -31,9 +31,9 @@ function App() {
       <h1>Ciao !! mami</h1>
       {/**looping through the useState function to get the values  */}
       {
-        post.map(post =>{
+        posts.map(post => (
           <Posts username={post.username} caption={post.caption} imageUrl={post.imageUrl} />
-        })
+        ))
       }
       
       {/** Adding Post props and putting value in it  */}
