@@ -2,6 +2,7 @@ import React from 'react'
 import './Post.css';
 import Avatar from '@material-ui/core/Avatar'
 
+//We defined the props here that are to be used
 function Posts({ username, caption, imageUrl}) {
     return (
         <div className="post">
@@ -14,10 +15,11 @@ function Posts({ username, caption, imageUrl}) {
             <h3>{username}</h3>
             </div>
 
-            {/** header -> avatar + username */}
+            
 
-            <img className="post__image" src="https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/Ekran-Resmi-2019-11-18-18.08.13.png"/>
+            <img className="post__image" src={imageUrl}/>
 
+             {/* Props name are put here and value will be given in App.js*/}
             <h4 className="post__text"><strong>{username} </strong> {caption}</h4>
         </div>
     )
