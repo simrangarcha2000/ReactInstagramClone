@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
 import Posts from './Posts';
-import Avatar from '@material-ui/core/Avatar'
+
 
 function App() {
   return (
@@ -15,10 +15,10 @@ function App() {
       </div>
       <h1>Ciao !! mami</h1>
       
+      <Posts username="cleverquazi" imageUrl="https://www.freecodecamp.org/news/content/images/size/w2000/2021/06/Ekran-Resmi-2019-11-18-18.08.13.png" caption="This is it"/>
       <Posts/>
-      {/* Posts */}
+      <Posts/>
 
-      {/* Posts */}
     </div>
   );
 }
