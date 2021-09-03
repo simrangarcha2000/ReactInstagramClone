@@ -1,3 +1,4 @@
+//Install npm i firebase@6.0.2 -> or else it shows errors
 import firebase from "firebase";
 
 const firebaseApp = firebase.initializeApp({
@@ -10,7 +11,7 @@ const firebaseApp = firebase.initializeApp({
     measurementId: "G-SQKXML9Y38"
 });
 
-const db = firebaseApp.firestone(); //Connect to Database
+const db = firebaseApp.firestore(); //Connect to Database
 const auth = firebase.auth(); //Login and Sign up 
 const storage = firebase.storage(); //Upload images and comments
 
