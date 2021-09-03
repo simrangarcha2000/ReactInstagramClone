@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import './App.css';
 import Posts from './Posts';
-
+import { db } from './firebase.js'
 
 function App() {
   /** Creating useState to pass values to props dynamically  */
@@ -18,6 +18,17 @@ function App() {
     }
   ]);
 
+  //UseEffect  -> Runs a piece of code based on a condition
+
+  useEffect(() => {
+    //This is where the code runs
+    //posts is the name of the collection in firebase 
+    db.collection('posts').onSnapshot(snapshot => {
+      //everytime a post is added fire this code again
+      //From the snapshot get the docs in firebase map through everything get each doc
+      setPosts(snapshot.docs.map(doc => doc.data()))
+    })
+  },[]);//run every time a post changes if no value run it ones
 
   return (
     <div className="app">
