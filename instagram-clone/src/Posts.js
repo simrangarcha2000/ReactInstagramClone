@@ -19,7 +19,7 @@ function Posts({ username, caption, imageUrl}) {
 
             <img className="post__image" src={imageUrl}/>
 
-             {/* Props name are put here and value will be given in App.js*/}
+            {/* Props name are put here and value will be given in App.js*/}
             <h4 className="post__text"><strong>{username} </strong> {caption}</h4>
         </div>
     )
