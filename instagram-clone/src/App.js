@@ -2,12 +2,12 @@ import React, { useState, useEffect } from 'react';
 import './App.css';
 import Posts from './Posts';
 import { db } from './firebase';
+import Modal from '@material-ui/core/Modal';
 
 function App() {
   /** Creating useState to pass values to props dynamically  */
-  const [posts, setPosts] = useState([
-
-  ]);
+  const [posts, setPosts] = useState([]);
+  const [open, setOpen ] = useState(false);
 
   //UseEffect  -> Runs a piece of code based on a condition
 
@@ -27,6 +27,17 @@ function App() {
 
   return (
     <div className="app">
+      <Modal
+        open={open}
+        onClose={handleClose}
+      >
+          const body = (
+    <div style={modalStyle} className={classes.paper}>
+      <h2>I am a modal</h2>
+    </div>
+      </Modal>
+
+
       <div className="app__header">
         <img 
           className="app__headerImage"
