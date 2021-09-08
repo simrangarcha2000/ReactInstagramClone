@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from 'react';
 import './App.css';
 import Posts from './Posts';
+import ImageUpload from './ImageUpload';
 import { db, auth } from './firebase';
 import { makeStyles } from '@material-ui/core/styles';
 import Modal from '@material-ui/core/Modal';
@@ -61,22 +62,24 @@ function App() {
       unsubscribe();
     }
 
-  },[username, user]);
+  },[ user, username]);
 
   //UseEffect  -> Runs a piece of code based on a condition
 
   useEffect(() => {
     //This is where the code runs
     //posts is the name of the collection in firebase 
-    db.collection('posts').onSnapshot(snapshot => {
+
       //everytime a post is added fire this code again
       //From the snapshot get the docs in firebase map through everything get each doc
       //Creating an object so that each post has its unique id
-      setPosts(snapshot.docs.map(doc => ({
+      db.collection('posts')
+      .onSnapshot((snapshot) => 
+      setPosts(snapshot.docs.map((doc) => ({
         id: doc.id, //Document id 
         post: doc.data() // Data from the document 
       })))
-    })
+    );
   },[]);//run every time a post changes if no value run it ones
 
   const signUp = (event) => {
@@ -115,6 +118,15 @@ function App() {
 
   return (
     <div className="app">
+      {user?.displayName ? (
+        <ImageUpload username = {user.displayName}/>
+      ): (
+        <h3>Log In to Upload</h3>
+      )}
+      
+
+
+
       <Modal open={open} onClose={() => setOpen(false)}>
     <div style={modalStyle} className={classes.paper}>
       <form className="app__signup">
